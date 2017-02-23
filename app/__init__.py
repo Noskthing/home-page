@@ -33,13 +33,18 @@ def create_app(config_name):
     pagedown.init_app(app)
     login_manager.init_app(app)
 
+    db.init_app(app)
+    with app.app_context():
+        # Extensions like Flask-SQLAlchemy now know what the "current" app
+        # is while within this block. Therefore, you can now run........
+        db.create_all()
 
     
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
-    # from .auth import auth as auth_blueprint
-    # app.register_blueprint(auth_blueprint,url_prefix = '/auth')
+    from .article import article as article_blueprint
+    app.register_blueprint(article_blueprint,url_prefix = '/article')
 
     # from .api_1_0 import api as api_1_0_blueprint
     # app.register_blueprint(api_1_0_blueprint, url_prefix='/api/v1.0')

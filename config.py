@@ -7,7 +7,7 @@ class Config(object):
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY = 'hard to guess string'
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:lee@localhost/lee'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:lee@localhost/blog'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     MAIL_SERVER = 'smtp.qq.com'
     MAIL_PORT = 465
@@ -18,7 +18,7 @@ class Config(object):
     FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
     FLASKY_MAIL_SENDER = '295060015@qq.com'
     FLASKY_ADMIN = 'FLASKY_ADMIN'
-    FLASKY_POSTS_PER_PAGE = 10
+    FLASKY_POSTS_PER_PAGE = 1
     FLASKY_FOLLOWERS_PER_PAGE = 50
     FLASKY_COMMENTS_PER_PAGE = 30
     FLASKY_SLOW_DB_QUERY_TIME=0.5
@@ -29,7 +29,7 @@ class Config(object):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:lee@localhost/lee'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:lee@localhost/blog'
 
 
 class TestingConfig(Config):

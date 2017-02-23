@@ -1,0 +1,16 @@
+<ol class="post-list">
+	{% for post in posts %}
+	<li>
+      <h2 class="post-list__post-title post-title">
+      	<a href="/2016/01/create-framework/" title="访问 {{ post.title }}">{{ post.title }}</a>
+      </h2>
+      <p class="excerpt">{{ post.introduction }}&hellip;</p>
+      <div class="post-list__meta">
+      	<time datetime="2016-01-19 15:32:24 +0900" class="post-list__meta--date date">{{ post.timestamp }}</time> &#8226; 
+      	<span class="post-list__meta--tags tags">{{ post.tag }}</span>
+      	<a class="btn-border-small" href= "">继续阅读</a>
+      </div>
+      <hr class="post-list__divider" />
+    </li>
+	{% endfor %}
+</ol>
