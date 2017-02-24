@@ -7,6 +7,6 @@ from flask_pagedown.fields import PageDownField
 class PostForm(Form):
     body = PageDownField("What's on your mind?", validators=[Required()])
     tag = StringField('tag',validators=[Required()])
-    introduction = TextAreaField('introduction',validators=[Required()])
+    introduction = TextAreaField('introduction')
     title = StringField('title',validators=[Required()])
     submit = SubmitField('Submit')

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+     <title>OneV&#39;s Den</title>
+     <meta name="description" content="{{ post.introduction }}">
+     <meta name="author" content="BoWen Lee">
+{% endblock %}
+
+{% block content %}
+<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-02-22 10:05:00 +0900" itemprop="datePublished" class="post-meta__date date">{{ post.timestamp }}</time> &#8226; <span class="post-meta__tags tags">{{ post.tag }}</span>
+    </div>
+    <h1 class="post-title">{{ post.title }}</h1>
+  </header>
+  <section class="post">
+    
+  {% if post.body_html %}
+    {{ post.body_html | safe }}
+  {% else %}
+    {{ post.body }}
+  {% endif %}
+
+  </section>
+</article>
+
+
+
+<section class="read-more">
+   
+  {% if pre_post %}
+
+    <div class="read-more-item">
+       <span class="read-more-item-dim">上·一·篇</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/02/mailme-app/" title="link to {{ pre_post.title }}">{{ pre_post.title }}</a></h2>
+       <p class="excerpt">{{ pre_post.introduction }}&hellip;</p>
+       <div class="post-list__meta"><time datetime="{{ pre_post.time }}" class="post-list__meta--date date">{{ pre_post.time }}</time> &#8226; <span class="post-list__meta--tags tags">{{ pre_post.tag }}</span><a class="btn-border-small" href="/article/{{ pre_post.id }}">继续阅读</a></div>
+    </div>
+
+  {% endif %}
+   
+  {% if next_post %}
+
+    <div class="read-more-item">
+       <span class="read-more-item-dim">下·一·篇</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/02/mailme-app/" title="link to {{ next_post.title }}">{{ next_post.title }}</a></h2>
+       <p class="excerpt">{{ next_post.introduction }}&hellip;</p>
+       <div class="post-list__meta"><time datetime="{{ next_post.time }}" class="post-list__meta--date date">{{ next_post.time }}</time> &#8226; <span class="post-list__meta--tags tags">{{ next_post.tag }}</span><a class="btn-border-small" href="/article/{{ next_post.id }}">继续阅读</a></div>
+    </div>
+
+  {% endif %}
+   
+</section>
+
+
+
+
+{% endblock %}
+
+
+    
